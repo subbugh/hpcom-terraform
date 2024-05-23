@@ -1,3 +1,4 @@
+
 terraform {
   required_providers {
     aws = {
@@ -5,6 +6,12 @@ terraform {
       #version = "~> 4.0.0"
       version = "~> 5.50.0"
     }
+  }
+  backend "s3" {
+    key            = "shared.tfstate"
+    region         = "eu-central-1"
+    bucket         = "spmd-dev-swp-265-spmd-tfstate"
+    dynamodb_table = "spmd-dev-swp-265-spmd-tfstate"
   }
 }
 
